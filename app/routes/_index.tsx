@@ -10,7 +10,7 @@ export async function loader({ request }: { request: Request }) {
 
 export default function Index() {
 	const [isLoading, setIsLoading] = useState(false);
-	const [userNameGithub, setUserNameGithub] = useState('yusupsupriyadi');
+	const [userNameGithub, setUserNameGithub] = useState('');
 	const [resultAI, setResultAI] = useState('');
 
 	async function handleGetGithubProfileClick() {
