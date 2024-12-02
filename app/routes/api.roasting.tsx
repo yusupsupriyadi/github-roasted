@@ -24,7 +24,6 @@ const generatePrompt = (data: GithubProfile) => {
 
 		Data Profil Github untuk di roasting:
 		Nama: ${data.name}
-		Username: ${data.login}
 		Bio: ${data.bio}
 		Lokasi: ${data.location}
 		Perusahaan: ${data.company}
