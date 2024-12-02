@@ -67,7 +67,7 @@ export default function Index() {
 					<h1 className='text-3xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50'>
 						Github Roasted
 					</h1>
-					<p className='mt-2 md:mt-4 font-normal text-sm md:text-base text-neutral-300 max-w-lg text-center mx-auto'>
+					<p className='mt-2 md:mt-4 font-normal text-sm md:text-base text-neutral-50 max-w-lg text-center mx-auto'>
 						Enter your Github username to get roasted.
 					</p>
 				</div>
