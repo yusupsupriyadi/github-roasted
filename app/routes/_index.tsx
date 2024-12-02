@@ -1,9 +1,8 @@
-import { generateAI } from '~/modules/generative-ai';
 import { useState } from 'react';
 import { Spotlight } from '~/components/ui/Spotlight';
-import { getGithubProfile } from '~/modules/github.profile';
-import { getCookie } from '~/modules/cookies';
 import type { MetaFunction } from '@remix-run/node';
+import axios from 'axios';
+import { GithubProfile } from '~/components/types/GithubProfile.types';
 
 export const meta: MetaFunction = () => {
 	return [
@@ -31,19 +30,29 @@ export const meta: MetaFunction = () => {
 	];
 };
 
-export async function loader({ request }: { request: Request }) {
-	return getCookie(request, 'point');
-}
-
 export default function Index() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [userNameGithub, setUserNameGithub] = useState('');
 	const [resultAI, setResultAI] = useState('');
 
+	const getGithubProfile = async () => {
+		const response = await axios.get(
+			`https://api.github.com/users/${userNameGithub}`,
+		);
+		return response.data;
+	};
+
+	const generateAI = async ({ body }: { body: GithubProfile }) => {
+		const response = await axios.post('/api/roasting', {
+			body,
+		});
+		return response.data;
+	};
+
 	async function handleGetGithubProfileClick() {
 		try {
 			setIsLoading(true);
-			const response = await getGithubProfile(userNameGithub);
+			const response = await getGithubProfile();
 			const responseAI = await generateAI({ body: response });
 			setResultAI(responseAI.data);
 		} catch (error) {
