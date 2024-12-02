@@ -72,7 +72,7 @@ export default function Index() {
 			</div>
 
 			<main className='relative px-4 md:px-0'>
-				<div className='p-4 pt-[10vh] md:pt-[30vh] mx-auto w-full'>
+				<div className='p-4 pt-[30vh] mx-auto w-full'>
 					<h1 className='text-3xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50'>
 						Github Roasted
 					</h1>
