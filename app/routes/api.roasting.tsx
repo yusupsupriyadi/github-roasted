@@ -3,9 +3,7 @@ import { json, type ActionFunction } from '@remix-run/node';
 import { GithubProfile } from '~/components/types/GithubProfile.types';
 
 export const action: ActionFunction = async ({ request }) => {
-	const genAI = new GoogleGenerativeAI(
-		'AIzaSyCWvlI2lVnwMUGIeezfJmZ8FUp8aqklA_4',
-	);
+	const genAI = new GoogleGenerativeAI(process.env.API_KEY_GEMINI_AI as string);
 	const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
 	const body = await request.json();
