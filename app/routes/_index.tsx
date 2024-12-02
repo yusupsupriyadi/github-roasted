@@ -3,6 +3,33 @@ import { useState } from 'react';
 import { Spotlight } from '~/components/ui/Spotlight';
 import { getGithubProfile } from '~/modules/github.profile';
 import { getCookie } from '~/modules/cookies';
+import type { MetaFunction } from '@remix-run/node';
+
+export const meta: MetaFunction = () => {
+	return [
+		{
+			title: 'Github Roasted - Get Your Github Profile Roasted',
+		},
+		{
+			name: 'description',
+			content:
+				'Enter your Github username and get a funny and entertaining roast about your Github profile.',
+		},
+		{
+			property: 'og:title',
+			content: 'Github Roasted',
+		},
+		{
+			property: 'og:description',
+			content:
+				'Get a funny and entertaining roast for your Github profile',
+		},
+		{
+			name: 'viewport',
+			content: 'width=device-width,initial-scale=1',
+		},
+	];
+};
 
 export async function loader({ request }: { request: Request }) {
 	return getCookie(request, 'point');
